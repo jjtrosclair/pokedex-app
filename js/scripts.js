@@ -19,4 +19,4 @@ var pokemonList = [
     },
 ]
 
-console.log(pokemonList);
+document.write(pokemonList);
