@@ -7,7 +7,7 @@ var pokemonList = [
     },
     {
         name: 'Charmander',
-        height: 0.6,
+        height: .6,
         types: ['fire'],
         abilities: ['Blaze', 'Solar-power']
     },
@@ -17,6 +17,24 @@ var pokemonList = [
         types: ['water'],
         abilities: ['Rain-dish', 'Torrent']
     },
+    {
+        name: 'Blastoise',
+        height: 5.03,
+        types: ['water'],
+        abilities: ['Torrent']
+    }
 ]
 
 document.write(pokemonList);
+document.write('<hr>')
+document.write(JSON.stringify(pokemonList));
+
+
+
+for (i = 0; i < length.pokemonList; i++){
+   if (pokemonList[i].height > 1){
+    document.write('<div>' + JSON.stringify(pokemonList[i].name) + '(' + JSON.stringify(pokemonList[i].height) + ')' + ' Wow that\'s big!' + '</div>')
+} else {
+        document.write('<div>' + JSON.stringify(pokemonList[i].name) + '(' + JSON.stringify(pokemonList[i].height) + ')' + '</div>')
+    }
+}
