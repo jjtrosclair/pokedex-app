@@ -27,14 +27,29 @@ var pokemonList = [
 
 document.write(pokemonList);
 document.write('<hr>')
-document.write(JSON.stringify(pokemonList));
 
 
 
-for (i = 0; i < length.pokemonList; i++){
+
+for (i = 0; i < pokemonList.length; i++){
    if (pokemonList[i].height > 1){
-    document.write('<div>' + JSON.stringify(pokemonList[i].name) + '(' + JSON.stringify(pokemonList[i].height) + ')' + ' Wow that\'s big!' + '</div>')
+    document.write('<div>' + pokemonList[i].name + ' (height ' + pokemonList[i].height + ')' + ' Wow that\'s big!' + '</div>')
 } else {
-        document.write('<div>' + JSON.stringify(pokemonList[i].name) + '(' + JSON.stringify(pokemonList[i].height) + ')' + '</div>')
+        document.write('<div>' + pokemonList[i].name + ' (height ' + pokemonList[i].height + ')' + '</div>')
     }
 }
+
+
+
+
+
+
+
+
+// for (i = 0; i < length.pokemonList; i++){
+//     if (pokemonList[i].height > 1){
+//      document.write('<div>' + JSON.stringify(pokemonList[i].name) + '(' + JSON.stringify(pokemonList[i].height) + ')' + ' Wow that\'s big!' + '</div>')
+//  } else {
+//          document.write('<div>' + JSON.stringify(pokemonList[i].name) + '(' + JSON.stringify(pokemonList[i].height) + ')' + '</div>')
+//      }
+//  }
