@@ -25,19 +25,27 @@ var pokemonList = [
     }
 ]
 
-document.write(pokemonList);
+
 document.write('<hr>')
 
 
+pokemonList.forEach(function(pokemon){
+    if (pokemon.height > 1){
+        document.write('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + ' Wow that\'s big!' + '</div>')
+    } else {
+            document.write('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + '</div>')
+        }
+})
+
+// for (i = 0; i < pokemonList.length; i++){
+//    if (pokemonList[i].height > 1){
+//     document.write('<div>' + pokemonList[i].name + ' (height ' + pokemonList[i].height + ')' + ' Wow that\'s big!' + '</div>')
+// } else {
+//         document.write('<div>' + pokemonList[i].name + ' (height ' + pokemonList[i].height + ')' + '</div>')
+//     }
+// }
 
 
-for (i = 0; i < pokemonList.length; i++){
-   if (pokemonList[i].height > 1){
-    document.write('<div>' + pokemonList[i].name + ' (height ' + pokemonList[i].height + ')' + ' Wow that\'s big!' + '</div>')
-} else {
-        document.write('<div>' + pokemonList[i].name + ' (height ' + pokemonList[i].height + ')' + '</div>')
-    }
-}
 
 
 
