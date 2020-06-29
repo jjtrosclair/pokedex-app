@@ -1,19 +1,59 @@
 
+
+:root {
+    --background-color: #f7f7f7;
+    --font-color: #3f3f44;
+    --box-color: #99b898;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
+    color: var(--font-color);
 }
 
+h1 {
+    text-align: center;
+}
 
+.pokemon-ul {
+    margin-top: 5rem;
+  list-style: none;
+  text-align: center;
+}
 
-.pokemon-container {
-    background-color: beige;
+.pokedex-container {
+    font-size: large;
+    background-color: var(--box-color);
     width: 25rem;
     text-align: center;
-    margin: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 3%;
+    line-height: 3rem;
 }
+
+.pokedex-container:hover {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .2s;
+}
+
+@media all and (max-width: 500px) {
+    .pokedex-container {
+       width: 20rem;
+        }
+  }
+  
+  @media all and (min-width: 500px) and (max-width: 750px) {
+    .pokedex-container {
+        width: 17rem;
+         }
+  
+  }

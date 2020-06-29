@@ -1,10 +1,3 @@
-
-
-document.write('<hr>')
-
-
-
-
 var pokemonRepository = (function () {
     var pokemonList = [
         {
@@ -32,40 +25,46 @@ var pokemonRepository = (function () {
             abilities: ['Torrent']
         }
     ]
+        //declare functions using function keyword, then return them as key value pairs, using the same name for both keys and values
 
-    return {
-        add: function(pokemon) {        //returning the two functions as key values
-            pokemonList.push(item); //adding the input parameter to the array
-            
-        },
+        function add(item){
+           pokemonList.push(item);
 
-        getAll: function() {
-            return pokemonList;
-            
         }
-    };
+
+        function getAll(){
+            return pokemonList;
+        }
+
+        function addListItem(pokemon) {
+            var $pokemonUl = document.querySelector('.pokemon-ul');
+            var $listItem = document.createElement('li');
+            var $button = document.createElement('button');
+            $button.innerText = pokemon.name + ' (height): ' + pokemon.height + "m";
+            $button.classList.add('pokedex-container');
+            $listItem.appendChild($button);
+            $pokemonUl.appendChild($listItem);
+        }
+
+        return {
+            add: add,
+            getAll: getAll,
+            addListItem: addListItem
+          };
+
 })();
 
 
 pokemonRepository.getAll().forEach(function(pokemon){
-    if (pokemon.height > 1){
-        document.write('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + ' Wow that\'s big!' + '</div>')
-    } else {
-            document.write('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + '</div>')
-        }
+  pokemonRepository.addListItem(pokemon);
 });
 
 
-
-
-// pokemonList.forEach(function(pokemon){
-//     if (pokemon.height > 1){
-//         document.write('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + ' Wow that\'s big!' + '</div>')
-//     } else {
-//             document.write('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + '</div>')
-//         }
-// });
-
+// if (pokemon.height > 1){
+//     document.write.$pokemonUl('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + ' Wow that\'s big!' + '</div>')
+// } else {
+//         document.write.$pokemonUl('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + '</div>')
+//     }
 
 
 
