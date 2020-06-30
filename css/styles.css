@@ -3,6 +3,7 @@
 :root {
     --background-color: #f7f7f7;
     --font-color: #3f3f44;
+    --secondary-color: #99d8d0;
     --box-color: #99b898;
 }
 
@@ -31,7 +32,7 @@ h1 {
 
 .pokedex-container {
     font-size: large;
-    background-color: var(--box-color);
+    background-color: var(--secondary-color);
     width: 25rem;
     text-align: center;
     margin-bottom: 1rem;

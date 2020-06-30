@@ -36,6 +36,10 @@ var pokemonRepository = (function () {
             return pokemonList;
         }
 
+        function showDetails(pokemon){
+            console.log(pokemon);
+        }
+
         function addListItem(pokemon) {
             var $pokemonUl = document.querySelector('.pokemon-ul');
             var $listItem = document.createElement('li');
@@ -44,7 +48,11 @@ var pokemonRepository = (function () {
             $button.classList.add('pokedex-container');
             $listItem.appendChild($button);
             $pokemonUl.appendChild($listItem);
+            $button.addEventListener('click', function(event) {
+                showDetails(pokemon);
+            });
         }
+        
 
         return {
             add: add,
