@@ -1,31 +1,8 @@
 var pokemonRepository = (function () {
-    var pokemonList = [
-        {
-            name: 'Bulbasaur',
-            height: .7,
-            types: ['grass', 'poison'],
-            abilities: ['Chlorophyll', 'Overgrow']
-        },
-        {
-            name: 'Charmander',
-            height: .6,
-            types: ['fire'],
-            abilities: ['Blaze', 'Solar-power']
-        },
-        {
-            name: 'Squirtle',
-            height: .5,
-            types: ['water'],
-            abilities: ['Rain-dish', 'Torrent']
-        },
-        {
-            name: 'Blastoise',
-            height: 5.03,
-            types: ['water'],
-            abilities: ['Torrent']
-        }
-    ]
-        //declare functions using function keyword, then return them as key value pairs, using the same name for both keys and values
+    var pokemonList = [];
+
+    var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+        
 
         function add(item){
            pokemonList.push(item);
@@ -36,15 +13,18 @@ var pokemonRepository = (function () {
             return pokemonList;
         }
 
-        function showDetails(pokemon){
-            console.log(pokemon);
-        }
+        function showDetails(item) {
+            loadDetails(item).then(function () {
+              console.log(item);
+            });
+          }
+
 
         function addListItem(pokemon) {
             var $pokemonUl = document.querySelector('.pokemon-ul');
             var $listItem = document.createElement('li');
             var $button = document.createElement('button');
-            $button.innerText = pokemon.name + ' (height): ' + pokemon.height + "m";
+            $button.innerText = pokemon.name;
             $button.classList.add('pokedex-container');
             $listItem.appendChild($button);
             $pokemonUl.appendChild($listItem);
@@ -52,20 +32,56 @@ var pokemonRepository = (function () {
                 showDetails(pokemon);
             });
         }
+
+        function loadList() {
+            return fetch(apiUrl).then(function (response) {
+              return response.json();
+            }).then(function (json) {
+              json.results.forEach(function (item) {
+                var pokemon = {
+                  name: item.name,
+                  detailsUrl: item.url
+                };
+                add(pokemon);
+              });
+            }).catch(function (e) {
+              console.error(e);
+            })
+          }
+
+          function loadDetails(item) {
+            var url = item.detailsUrl;
+            return fetch(url).then(function (response) {
+              return response.json();
+            }).then(function (details) {
+              // Now we add the details to the item
+              item.imageUrl = details.sprites.front_default;
+              item.height = details.height;
+              item.types = details.types;
+            }).catch(function (e) {
+              console.error(e);
+            });
+          }
+
         
 
         return {
             add: add,
             getAll: getAll,
-            addListItem: addListItem
+            addListItem: addListItem,
+            loadList: loadList,
+            loadDetails: loadDetails
           };
 
 })();
 
+pokemonRepository.loadList().then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon){
+        pokemonRepository.addListItem(pokemon);
+    });
+  });
 
-pokemonRepository.getAll().forEach(function(pokemon){
-  pokemonRepository.addListItem(pokemon);
-});
+
 
 
 // if (pokemon.height > 1){

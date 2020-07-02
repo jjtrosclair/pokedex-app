@@ -4,7 +4,8 @@
     --background-color: #f7f7f7;
     --font-color: #3f3f44;
     --secondary-color: #99d8d0;
-    --box-color: #99b898;
+    --box-color: #20b2aa;
+    --border-color: #778899;
 }
 
 * {
@@ -18,17 +19,35 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     color: var(--font-color);
+  
 }
 
 h1 {
     text-align: center;
 }
 
+hr{
+    margin-bottom: 5rem;
+    background-color: var(--border-color);
+}
+
+.card {
+    border: solid thin var(--border-color);
+    width: 35rem;
+    margin: auto;
+    text-align: center;
+}
 .pokemon-ul {
-    margin-top: 5rem;
+    margin-top: 2rem;
+    margin-left: none;
   list-style: none;
   text-align: center;
+  padding-right: 2rem;
+
+
 }
+
+
 
 .pokedex-container {
     font-size: large;
@@ -36,14 +55,15 @@ h1 {
     width: 25rem;
     text-align: center;
     margin-bottom: 1rem;
-    border-radius: 3%;
+    border-radius: 5%;
     line-height: 3rem;
+    text-transform: capitalize;
 }
 
 .pokedex-container:hover {
     cursor: pointer;
     opacity: .8;
-    transition: opacity .2s;
+    transition: opacity .3s;
 }
 
 @media all and (max-width: 500px) {
