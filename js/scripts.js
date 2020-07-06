@@ -25,7 +25,7 @@ var pokemonRepository = (function () {
         var modal = document.createElement('div');
         modal.classList.add('modal');
 
-        //add the new modal content
+        //adding the new modal content
 
         var modalCloseButton = document.createElement('button');
         modalCloseButton.classList.add('modal-close');
@@ -152,8 +152,3 @@ pokemonRepository.loadList().then(function () {
 
 
 
-// if (pokemon.height > 1){
-//     document.write.$pokemonUl('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + ' Wow that\'s big!' + '</div>')
-// } else {
-//         document.write.$pokemonUl('<div class="pokemon-container">' + pokemon.name + ' (height ' + pokemon.height + ')' + '</div>')
-//     }
